@@ -1,29 +1,32 @@
-all-features = false
-no-default-features = false
+[graph]
+all-features = true
 
 [advisories]
+version = 2
 db-urls = ["https://github.com/rustsec/advisory-db"]
-vulnerability = "deny"
-unmaintained = "warn"
-yanked = "warn"
-notice = "warn"
 ignore = [
     # "RUSTSEC-0000-0000"
 ]
 
 [licenses]
-unlicensed = "deny"
+version = 2
 allow = [
     "MIT",
+    "ISC",
+    "OpenSSL",
     "Apache-2.0",
     "BSD-3-Clause",
     "Unicode-DFS-2016", # used by unicode-ident
     "CC0-1.0",
     "MPL-2.0",
 ]
-copyleft = "deny"
-allow-osi-fsf-free = "neither"
-default = "deny"
+
+[[licenses.clarify]]
+name = "ring"
+expression = "MIT AND ISC AND OpenSSL"
+license-files = [
+    { path = "LICENSE", hash = 0xbd0eed23 }
+]
 
 [bans]
 skip = [
